@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chapter 1 — The Beginning | The Vessel: Awakening</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #080808;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+
+            transition:
+                background 0.4s,
+                color 0.4s;
+        }
+
+
+        /* =========================
+           TOP NAVIGATION
+        ========================= */
+
+        nav {
+
+            min-height: 68px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #090909,
+                    #160707,
+                    #090909
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom:
+                1px solid #4b1717;
+
+            box-shadow:
+                0 3px 18px
+                rgba(0,0,0,0.5);
+
+            transition:
+                background 0.4s,
+                border-color 0.4s;
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+
+            position: relative;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            padding-left: 28px;
+
+            color: #f5f5f5;
+        }
+
+
+        .logo::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 50%;
+
+            width: 15px;
+            height: 15px;
+
+            transform:
+                translateY(-50%)
+                rotate(45deg);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3b3b,
+                    #720000
+                );
+
+            box-shadow:
+                0 0 10px
+                rgba(255,40,40,0.5);
+        }
+
+
+        /* =========================
+           NAV LINKS
+        ========================= */
+
+        nav a {
+
+            color: #cfcfcf;
+
+            text-decoration: none;
+
+            margin-left: 20px;
+
+            font-size: 14px;
+
+            transition:
+                color 0.25s,
+                text-shadow 0.25s;
+        }
+
+
+        nav a:hover {
+
+            color: #ff4545;
+
+            text-shadow:
+                0 0 8px
+                rgba(255,50,50,0.4);
+        }
+
+
+        /* =========================
+           THEME BUTTON
+        ========================= */
+
+        #themeToggle {
+
+            margin-left: 20px;
+
+            padding: 8px 13px;
+
+            border:
+                1px solid #6b2222;
+
+            background:
+                #1a0b0b;
+
+            color: white;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            transition:
+                0.3s;
+        }
+
+
+        #themeToggle:hover {
+
+            background: #300d0d;
+
+            border-color: #a83232;
+
+            box-shadow:
+                0 0 10px
+                rgba(255,40,40,0.25);
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            text-align: center;
+
+            padding:
+                55px 15px 45px;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(115,0,0,0.3),
+                    transparent 55%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #130606,
+                    #080808
+                );
+
+            border-bottom:
+                1px solid #351010;
+        }
+
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 4px;
+
+            color: #ff4141;
+
+            text-shadow:
+                0 0 14px
+                rgba(255,30,30,0.2);
+        }
+
+
+        header p {
+
+            color: #999999;
+
+            margin:
+                12px 0 0;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MANGA READER
+        ========================= */
+
+        .manga-reader {
+
+            max-width: 950px;
+
+            margin: auto;
+
+            padding:
+                35px 10px 20px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           MANGA PAGE
+        ========================= */
+
+        .manga-page {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 900px;
+
+            height: auto;
+
+            margin:
+                0 auto 15px;
+
+            background: white;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.45);
+
+            transition:
+                box-shadow 0.3s;
+        }
+
+
+        .manga-page:hover {
+
+            box-shadow:
+                0 5px 30px
+                rgba(150,0,0,0.15);
+        }
+
+
+        /* =========================
+           READER NAVIGATION
+        ========================= */
+
+        .reader-navigation {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            max-width: 900px;
+
+            margin:
+                35px auto 35px;
+
+            gap: 10px;
+
+            padding:
+                0 5px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .reader-button {
+
+            display: inline-block;
+
+            padding:
+                12px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f5f5,
+                    #d8d8d8
+                );
+
+            color: #090909;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            transition:
+                0.25s;
+        }
+
+
+        .reader-button:hover {
+
+            background: #ff3d3d;
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 0 15px
+                rgba(255,40,40,0.3);
+        }
+
+
+        /* =========================
+           DISABLED BUTTON
+        ========================= */
+
+        .disabled {
+
+            opacity: 0.35;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           HOME BUTTON
+        ========================= */
+
+        .home-button {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #070707;
+
+            color: #666666;
+
+            font-size: 13px;
+
+            border-top:
+                1px solid #222222;
+        }
+
+
+        /* =========================
+           LIGHT MODE
+        ========================= */
+
+        .light-mode {
+
+            background: #f4f4f4;
+
+            color: #111111;
+        }
+
+
+        .light-mode nav {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #f7eeee,
+                    #ffffff
+                );
+
+            border-bottom-color:
+                #d8bebe;
+
+            box-shadow:
+                0 3px 15px
+                rgba(0,0,0,0.08);
+        }
+
+
+        .light-mode .logo {
+
+            color: #161616;
+        }
+
+
+        .light-mode nav a {
+
+            color: #333333;
+        }
+
+
+        .light-mode nav a:hover {
+
+            color: #a00000;
+        }
+
+
+        .light-mode #themeToggle {
+
+            background: #f3eeee;
+
+            color: #222222;
+
+            border-color: #b88d8d;
+        }
+
+
+        .light-mode #themeToggle:hover {
+
+            background: #eadada;
+
+            border-color: #a34b4b;
+        }
+
+
+        .light-mode header {
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(150,0,0,0.08),
+                    transparent 60%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #fffafa,
+                    #f1f1f1
+                );
+
+            border-bottom-color:
+                #dddddd;
+        }
+
+
+        .light-mode header h1 {
+
+            color: #8f0000;
+
+            text-shadow: none;
+        }
+
+
+        .light-mode header p {
+
+            color: #555555;
+        }
+
+
+        .light-mode .manga-page {
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.12);
+        }
+
+
+        .light-mode .reader-button {
+
+            background: #151515;
+
+            color: white;
+        }
+
+
+        .light-mode .reader-button:hover {
+
+            background: #a00000;
+
+            color: white;
+        }
+
+
+        .light-mode footer {
+
+            background: white;
+
+            color: #666666;
+
+            border-top-color:
+                #dddddd;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    10px 15px;
+
+                flex-wrap: wrap;
+
+                gap: 8px;
+            }
+
+
+            .logo {
+
+                font-size: 14px;
+            }
+
+
+            nav a {
+
+                margin-left: 7px;
+
+                font-size: 11px;
+            }
+
+
+            #themeToggle {
+
+                margin-left: 5px;
+
+                padding:
+                    6px 8px;
+
+                font-size: 11px;
+            }
+
+
+            header {
+
+                padding:
+                    40px 10px 35px;
+            }
+
+
+            header h1 {
+
+                font-size: 21px;
+
+                letter-spacing: 2px;
+            }
+
+
+            header p {
+
+                font-size: 13px;
+            }
+
+
+            .manga-reader {
+
+                padding:
+                    15px 3px 10px;
+            }
+
+
+            .manga-page {
+
+                margin-bottom: 7px;
+            }
+
+
+            .reader-navigation {
+
+                padding:
+                    0 8px;
+
+                margin-top: 25px;
+            }
+
+
+            .reader-button {
+
+                padding:
+                    10px 13px;
+
+                font-size: 12px;
+            }
+
+
+            .home-button {
+
+                margin-bottom: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            THE VESSEL
+        </div>
+
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="world.html">
+                World
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="manga.html">
+                Manga
+            </a>
+
+            <a href="characters.html">
+                Characters
+            </a>
+
+        </div>
+
+
+        <button
+            id="themeToggle"
+            onclick="toggleTheme()">
+
+            ☀️ Light
+
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <h1>
+            THE VESSEL: AWAKENING
+        </h1>
+
+        <p>
+            Chapter 1 — The Beginning
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         MANGA READER
+    ========================= -->
+
+    <main class="manga-reader">
+
+
+        <!-- PAGE 1 -->
+
+        <img
+            class="manga-page"
+            src="manga/chapter1/page1.jpg"
+            alt="Chapter 1 Page 1">
+
+
+        <!-- PAGE 2 -->
+
+        <img
+            class="manga-page"
+            src="manga/chapter1/page2.jpg"
+            alt="Chapter 1 Page 2">
+
+
+        <!-- PAGE 3 -->
+
+        <img
+            class="manga-page"
+            src="manga/chapter1/page3.jpg"
+            alt="Chapter 1 Page 3">
+
+
+        <!-- =========================
+             READER NAVIGATION
+        ========================= -->
+
+        <div class="reader-navigation">
+
+
+            <a
+                class="reader-button disabled"
+                href="#">
+
+                ← Previous
+
+            </a>
+
+
+            <a
+                class="reader-button"
+                href="manga.html">
+
+                Manga
+
+            </a>
+
+
+            <a
+                class="reader-button disabled"
+                href="#">
+
+                Next →
+
+            </a>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="home-button">
+
+            <a
+                class="reader-button"
+                href="index.html">
+
+                🏠 Home
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 The Vessel: Awakening
+
+    </footer>
+
+
+    <!-- =========================
+         THEME SCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleTheme() {
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+
+            const button =
+                document.getElementById(
+                    "themeToggle"
+                );
+
+
+            if (
+                document.body.classList.contains(
+                    "light-mode"
+                )
+            ) {
+
+                button.innerHTML =
+                    "🌙 Dark";
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+            } else {
+
+                button.innerHTML =
+                    "☀️ Light";
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           REMEMBER THEME
+        ========================= */
+
+        if (
+            localStorage.getItem(
+                "theme"
+            ) === "light"
+        ) {
+
+            document.body.classList.add(
+                "light-mode"
+            );
+
+
+            document.getElementById(
+                "themeToggle"
+            ).innerHTML =
+                "🌙 Dark";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
