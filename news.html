@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>News — The Vessel: Awakening</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* =========================
+           BASE
+        ========================= */
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #0b0b0b;
+
+            color: #ffffff;
+
+            transition:
+                background 0.4s ease,
+                color 0.4s ease;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+
+            min-height: 65px;
+
+            background: #111111;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 10px 7%;
+
+            border-bottom: 1px solid #333333;
+
+            gap: 15px;
+
+            transition:
+                background 0.4s ease,
+                border-color 0.4s ease;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+
+            color: #ffffff;
+        }
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+        }
+
+
+        nav a {
+
+            color: #dddddd;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition:
+                color 0.25s ease,
+                text-shadow 0.25s ease;
+        }
+
+
+        nav a:hover {
+
+            color: #ff3b3b;
+
+            text-shadow:
+                0 0 8px rgba(255,59,59,0.55);
+        }
+
+
+        nav a.active {
+
+            color: #ff3b3b;
+
+            text-shadow:
+                0 0 8px rgba(255,59,59,0.55);
+        }
+
+
+        /* =========================
+           THEME BUTTON
+        ========================= */
+
+        #themeToggle {
+
+            padding: 8px 12px;
+
+            border: 1px solid #555555;
+
+            background: #222222;
+
+            color: #ffffff;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.2s ease;
+        }
+
+
+        #themeToggle:hover {
+
+            color: #ff3b3b;
+
+            border-color: #8b0000;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .page-header {
+
+            text-align: center;
+
+            padding: 70px 20px 50px;
+
+            background:
+
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.85)
+                ),
+
+                radial-gradient(
+                    circle at center,
+                    #333333,
+                    #080808 70%
+                );
+
+            transition:
+                background 0.4s ease;
+        }
+
+
+        .page-header h1 {
+
+            margin: 0;
+
+            font-size: 45px;
+
+            letter-spacing: 5px;
+
+            color: #ffffff;
+
+            text-shadow:
+                0 0 15px rgba(255,255,255,0.08);
+        }
+
+
+        .page-header p {
+
+            color: #aaaaaa;
+
+            margin-top: 15px;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NEWS CONTAINER
+        ========================= */
+
+        .news-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 60px 20px;
+        }
+
+
+        /* =========================
+           NEWS CARD
+        ========================= */
+
+        .news-card {
+
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            border-radius: 10px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.4s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .news-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #8b0000;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.3);
+        }
+
+
+        /* =========================
+           DATE
+        ========================= */
+
+        .news-date {
+
+            color: #888888;
+
+            font-size: 13px;
+
+            margin-bottom: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           NEWS HEADING
+        ========================= */
+
+        .news-card h2 {
+
+            margin: 0 0 15px;
+
+            font-size: 24px;
+
+            color: #ffffff;
+
+            line-height: 1.4;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .news-card:hover h2 {
+
+            color: #ff3b3b;
+        }
+
+
+        /* =========================
+           NEWS TEXT
+        ========================= */
+
+        .news-card p {
+
+            color: #cccccc;
+
+            line-height: 1.8;
+
+            margin: 0 0 18px;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           READ MORE
+        ========================= */
+
+        .read-more {
+
+            display: inline-block;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .read-more:hover {
+
+            color: #ff3b3b;
+
+            transform: translateX(3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #080808;
+
+            color: #666666;
+
+            font-size: 13px;
+
+            border-top: 1px solid #222222;
+
+            transition:
+                background 0.4s ease,
+                color 0.4s ease,
+                border-color 0.4s ease;
+        }
+
+
+        /* =================================================
+           LIGHT MODE
+        ================================================= */
+
+        body.light-mode {
+
+            background: #f3f4f6;
+
+            color: #111111;
+        }
+
+
+        /* NAV */
+
+        body.light-mode nav {
+
+            background: #e7e9ec;
+
+            border-bottom-color: #b8bcc2;
+
+            box-shadow:
+                0 2px 12px rgba(0,0,0,0.08);
+        }
+
+
+        body.light-mode .logo {
+
+            color: #171717;
+        }
+
+
+        body.light-mode nav a {
+
+            color: #252525;
+        }
+
+
+        body.light-mode nav a:hover {
+
+            color: #a00000;
+
+            text-shadow:
+                0 0 7px rgba(160,0,0,0.25);
+        }
+
+
+        body.light-mode nav a.active {
+
+            color: #a00000;
+
+            text-shadow:
+                0 0 7px rgba(160,0,0,0.25);
+        }
+
+
+        /* THEME BUTTON */
+
+        body.light-mode #themeToggle {
+
+            background: #d9dce0;
+
+            color: #222222;
+
+            border-color: #8f949a;
+        }
+
+
+        body.light-mode #themeToggle:hover {
+
+            color: #a00000;
+
+            border-color: #a00000;
+
+            box-shadow:
+                0 0 10px rgba(160,0,0,0.2);
+        }
+
+
+        /* PAGE HEADER */
+
+        body.light-mode .page-header {
+
+            background:
+
+                linear-gradient(
+                    rgba(255,255,255,0.72),
+                    rgba(245,245,245,0.96)
+                ),
+
+                radial-gradient(
+                    circle at center,
+                    #eeeeee,
+                    #ffffff 70%
+                );
+        }
+
+
+        body.light-mode .page-header h1 {
+
+            color: #111111;
+
+            text-shadow: none;
+        }
+
+
+        body.light-mode .page-header p {
+
+            color: #555555;
+        }
+
+
+        /* NEWS CARD */
+
+        body.light-mode .news-card {
+
+            background: #ffffff;
+
+            border-color: #cccccc;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        body.light-mode .news-card:hover {
+
+            border-color: #a00000;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.09);
+        }
+
+
+        body.light-mode .news-date {
+
+            color: #666666;
+        }
+
+
+        body.light-mode .news-card h2 {
+
+            color: #111111;
+        }
+
+
+        body.light-mode .news-card:hover h2 {
+
+            color: #a00000;
+        }
+
+
+        body.light-mode .news-card p {
+
+            color: #444444;
+        }
+
+
+        body.light-mode .read-more {
+
+            color: #111111;
+        }
+
+
+        body.light-mode .read-more:hover {
+
+            color: #a00000;
+        }
+
+
+        /* FOOTER */
+
+        body.light-mode footer {
+
+            background: #e1e3e6;
+
+            color: #666666;
+
+            border-top-color: #cccccc;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                padding: 12px 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 10px;
+            }
+
+
+            .logo {
+
+                width: 100%;
+
+                text-align: center;
+
+                font-size: 15px;
+            }
+
+
+            .nav-links {
+
+                width: 100%;
+
+                gap: 12px;
+            }
+
+
+            nav a {
+
+                font-size: 12px;
+            }
+
+
+            #themeToggle {
+
+                font-size: 12px;
+
+                padding: 7px 10px;
+            }
+
+
+            .page-header {
+
+                padding: 50px 15px 35px;
+            }
+
+
+            .page-header h1 {
+
+                font-size: 34px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .page-header p {
+
+                font-size: 14px;
+            }
+
+
+            .news-container {
+
+                padding: 40px 15px;
+            }
+
+
+            .news-card {
+
+                padding: 22px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .news-card h2 {
+
+                font-size: 21px;
+            }
+
+
+            .news-card p {
+
+                font-size: 15px;
+
+                line-height: 1.7;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .nav-links {
+
+                gap: 9px;
+            }
+
+
+            nav a {
+
+                font-size: 11px;
+            }
+
+
+            .page-header h1 {
+
+                font-size: 30px;
+            }
+
+
+            .news-card {
+
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+
+        <div class="logo">
+
+            THE VESSEL
+
+        </div>
+
+
+        <div class="nav-links">
+
+
+            <a href="index.html">
+
+                Home
+
+            </a>
+
+
+            <a href="world.html">
+
+                World
+
+            </a>
+
+
+            <a
+                href="news.html"
+                class="active">
+
+                News
+
+            </a>
+
+
+            <a href="manga.html">
+
+                Manga
+
+            </a>
+
+
+            <a href="characters.html">
+
+                Characters
+
+            </a>
+
+
+        </div>
+
+
+        <button
+            id="themeToggle"
+            type="button"
+            onclick="toggleTheme()">
+
+            ☀️ Light
+
+        </button>
+
+
+    </nav>
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================= -->
+
+    <header class="page-header">
+
+
+        <h1>
+
+            NEWS
+
+        </h1>
+
+
+        <p>
+
+            Latest updates from
+            The Vessel: Awakening
+
+        </p>
+
+
+    </header>
+
+
+    <!-- =========================
+         NEWS CONTENT
+    ========================= -->
+
+    <main class="news-container">
+
+
+        <!-- NEWS 01 -->
+
+        <article class="news-card">
+
+
+            <div class="news-date">
+
+                AUGUST 2026
+
+            </div>
+
+
+            <h2>
+
+                The Vessel: Awakening Website Is Live
+
+            </h2>
+
+
+            <p>
+
+                The official website of
+                The Vessel: Awakening is now live.
+
+                Explore the world, characters,
+                manga updates and upcoming story
+                information.
+
+            </p>
+
+
+            <a
+                href="#"
+                class="read-more">
+
+                Read More →
+
+            </a>
+
+
+        </article>
+
+
+        <!-- NEWS 02 -->
+
+        <article class="news-card">
+
+
+            <div class="news-date">
+
+                AUGUST 2026
+
+            </div>
+
+
+            <h2>
+
+                Character Profiles Coming Soon
+
+            </h2>
+
+
+            <p>
+
+                Detailed character information will
+                gradually be added to the website as
+                The Vessel: Awakening continues.
+
+            </p>
+
+
+            <a
+                href="characters.html"
+                class="read-more">
+
+                View Characters →
+
+            </a>
+
+
+        </article>
+
+
+        <!-- NEWS 03 -->
+
+        <article class="news-card">
+
+
+            <div class="news-date">
+
+                AUGUST 2026
+
+            </div>
+
+
+            <h2>
+
+                More Story Updates Are Coming
+
+            </h2>
+
+
+            <p>
+
+                New chapters, world information and
+                important updates about
+                The Vessel: Awakening will be added
+                to the website over time.
+
+            </p>
+
+
+            <a
+                href="index.html"
+                class="read-more">
+
+                Back to Home →
+
+            </a>
+
+
+        </article>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 The Vessel: Awakening
+
+    </footer>
+
+
+    <!-- =========================
+         THEME SCRIPT
+    ========================= -->
+
+    <script>
+
+
+        function updateThemeButton() {
+
+
+            const button =
+                document.getElementById(
+                    "themeToggle"
+                );
+
+
+            if (
+                document.body.classList.contains(
+                    "light-mode"
+                )
+            ) {
+
+                button.innerHTML =
+                    "🌙 Dark";
+
+            }
+
+            else {
+
+                button.innerHTML =
+                    "☀️ Light";
+
+            }
+
+        }
+
+
+        function toggleTheme() {
+
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+
+            const isLight =
+                document.body.classList.contains(
+                    "light-mode"
+                );
+
+
+            localStorage.setItem(
+                "theme",
+                isLight
+                    ? "light"
+                    : "dark"
+            );
+
+
+            updateThemeButton();
+
+        }
+
+
+        /* =========================
+           REMEMBER THEME
+        ========================= */
+
+        if (
+            localStorage.getItem(
+                "theme"
+            ) === "light"
+        ) {
+
+            document.body.classList.add(
+                "light-mode"
+            );
+
+        }
+
+
+        updateThemeButton();
+
+
+    </script>
+
+
+</body>
+
+</html>

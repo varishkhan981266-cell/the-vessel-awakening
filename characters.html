@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Characters — The Vessel: Awakening</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+
+            background: #08090d;
+            color: #f2f2f2;
+
+            transition:
+                background 0.4s,
+                color 0.4s;
+        }
+
+
+        /* =========================
+           THEME COLORS
+        ========================= */
+
+        :root {
+
+            --accent: #c7a6ff;
+            --accent-dark: #8f6bd9;
+
+            --nav-dark: #11131a;
+            --card-dark: #151821;
+            --border-dark: #292d38;
+
+            --text-dark: #f2f2f2;
+            --muted-dark: #a7aab4;
+
+            --nav-light: #ffffff;
+            --card-light: #ffffff;
+            --border-light: #d8dbe2;
+
+            --text-light: #15161a;
+            --muted-light: #555861;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+
+            min-height: 65px;
+
+            background: var(--nav-dark);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid var(--border-dark);
+
+            transition:
+                background 0.4s,
+                border-color 0.4s;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+
+            color: var(--accent);
+
+            text-shadow:
+                0 0 8px rgba(199,166,255,0.25);
+        }
+
+
+        /* NAV LINKS */
+
+        nav a {
+
+            color: #c9cbd3;
+
+            text-decoration: none;
+
+            margin-left: 20px;
+
+            font-size: 14px;
+
+            transition: color 0.25s;
+        }
+
+
+        nav a:hover {
+
+            color: var(--accent);
+        }
+
+
+        /* =========================
+           THEME BUTTON
+        ========================= */
+
+        #themeToggle {
+
+            margin-left: 20px;
+
+            padding: 8px 12px;
+
+            border: 1px solid #454955;
+
+            background: #1c1f28;
+
+            color: #f2f2f2;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.3s,
+                color 0.3s,
+                border-color 0.3s,
+                transform 0.2s;
+        }
+
+
+        #themeToggle:hover {
+
+            transform: translateY(-1px);
+
+            border-color: var(--accent);
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .page-header {
+
+            text-align: center;
+
+            padding: 70px 20px 50px;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(199,166,255,0.14),
+                    transparent 45%
+                ),
+
+                linear-gradient(
+                    #11131a,
+                    #08090d
+                );
+
+            transition: background 0.4s;
+        }
+
+
+        .page-header h1 {
+
+            margin: 0;
+
+            font-size: 45px;
+
+            letter-spacing: 5px;
+
+            color: var(--accent);
+
+            text-shadow:
+                0 0 18px rgba(199,166,255,0.18);
+        }
+
+
+        .page-header p {
+
+            color: var(--muted-dark);
+
+            margin-top: 15px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           CHARACTERS
+        ========================= */
+
+        .characters-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 60px 20px;
+        }
+
+
+        .character-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        /* CHARACTER LINK */
+
+        .character-link {
+
+            text-decoration: none;
+
+            color: inherit;
+
+            display: block;
+
+            height: 100%;
+        }
+
+
+        /* =========================
+           CHARACTER CARD
+        ========================= */
+
+        .character-card {
+
+            background: var(--card-dark);
+
+            border: 1px solid var(--border-dark);
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            height: 100%;
+
+            transition:
+                transform 0.3s,
+                border-color 0.3s,
+                background 0.4s,
+                box-shadow 0.3s;
+        }
+
+
+        .character-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: var(--accent-dark);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3),
+                0 0 18px rgba(199,166,255,0.08);
+        }
+
+
+        /* =========================
+           CHARACTER IMAGE
+        ========================= */
+
+        .character-image {
+
+            width: 100%;
+
+            max-width: 220px;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            margin: 0 auto 20px;
+
+            display: block;
+
+            background: #0b0c11;
+
+            border: 1px solid #363a46;
+
+            border-radius: 5px;
+
+            transition:
+                border-color 0.3s,
+                transform 0.3s;
+        }
+
+
+        .character-card:hover .character-image {
+
+            border-color: var(--accent-dark);
+        }
+
+
+        /* =========================
+           CHARACTER TEXT
+        ========================= */
+
+        .character-card h2 {
+
+            margin: 10px 0;
+
+            font-size: 22px;
+
+            color: var(--accent);
+
+            transition: color 0.3s;
+        }
+
+
+        .character-role {
+
+            color: #9a9da8;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+
+            transition: color 0.3s;
+        }
+
+
+        .character-card p {
+
+            color: #aeb1bb;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #06070a;
+
+            color: #70737c;
+
+            font-size: 13px;
+
+            transition:
+                background 0.4s,
+                color 0.4s;
+        }
+
+
+        /* =====================================================
+           LIGHT MODE
+        ===================================================== */
+
+        .light-mode {
+
+            background: #f4f5f8;
+
+            color: var(--text-light);
+        }
+
+
+        /* NAV */
+
+        .light-mode nav {
+
+            background: var(--nav-light);
+
+            border-bottom-color: var(--border-light);
+        }
+
+
+        .light-mode .logo {
+
+            color: #7352b8;
+
+            text-shadow: none;
+        }
+
+
+        .light-mode nav a {
+
+            color: #3d3f46;
+        }
+
+
+        .light-mode nav a:hover {
+
+            color: #7352b8;
+        }
+
+
+        /* THEME BUTTON */
+
+        .light-mode #themeToggle {
+
+            background: #f0f1f5;
+
+            color: #202127;
+
+            border-color: #bfc2cb;
+        }
+
+
+        .light-mode #themeToggle:hover {
+
+            border-color: #7352b8;
+        }
+
+
+        /* PAGE HEADER */
+
+        .light-mode .page-header {
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(115,82,184,0.12),
+                    transparent 45%
+                ),
+
+                linear-gradient(
+                    #ffffff,
+                    #f4f5f8
+                );
+        }
+
+
+        .light-mode .page-header h1 {
+
+            color: #7352b8;
+
+            text-shadow: none;
+        }
+
+
+        .light-mode .page-header p {
+
+            color: #60636b;
+        }
+
+
+        /* CHARACTER CARD */
+
+        .light-mode .character-card {
+
+            background: var(--card-light);
+
+            border-color: var(--border-light);
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .light-mode .character-card:hover {
+
+            border-color: #a993d1;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.09);
+        }
+
+
+        .light-mode .character-image {
+
+            background: #eeeeF2;
+
+            border-color: #d0d2d9;
+        }
+
+
+        .light-mode .character-card h2 {
+
+            color: #7352b8;
+        }
+
+
+        .light-mode .character-role {
+
+            color: #777b85;
+        }
+
+
+        .light-mode .character-card p {
+
+            color: #4d5058;
+        }
+
+
+        /* FOOTER */
+
+        .light-mode footer {
+
+            background: #ffffff;
+
+            color: #70737a;
+
+            border-top: 1px solid #e0e1e6;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding: 10px 15px;
+
+                flex-wrap: wrap;
+
+                gap: 8px;
+            }
+
+
+            .logo {
+
+                font-size: 14px;
+            }
+
+
+            nav a {
+
+                margin-left: 7px;
+
+                font-size: 11px;
+            }
+
+
+            #themeToggle {
+
+                margin-left: 5px;
+
+                padding: 6px 8px;
+
+                font-size: 11px;
+            }
+
+
+            .page-header {
+
+                padding: 55px 15px 40px;
+            }
+
+
+            .page-header h1 {
+
+                font-size: 32px;
+
+                letter-spacing: 4px;
+            }
+
+
+            .page-header p {
+
+                font-size: 13px;
+            }
+
+
+            .characters-container {
+
+                padding: 40px 15px;
+            }
+
+
+            .character-card {
+
+                padding: 22px;
+            }
+
+
+            .character-image {
+
+                height: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            THE VESSEL
+
+        </div>
+
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="world.html">
+                World
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="manga.html">
+                Manga
+            </a>
+
+            <a href="characters.html">
+                Characters
+            </a>
+
+        </div>
+
+
+        <button
+            id="themeToggle"
+            onclick="toggleTheme()">
+
+            ☀️ Light
+
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div class="page-header">
+
+        <h1>
+            CHARACTERS
+        </h1>
+
+        <p>
+            Meet the characters of The Vessel: Awakening
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         CHARACTERS
+    ========================= -->
+
+    <main class="characters-container">
+
+        <div class="character-grid">
+
+
+            <!-- RYZO -->
+
+            <a
+                href="ryzo.html"
+                class="character-link">
+
+                <div class="character-card">
+
+                    <img
+                        class="character-image"
+                        src="characters/ryzo.jpg"
+                        alt="Ryzo Kaveh">
+
+                    <h2>
+                        Ryzo Kaveh
+                    </h2>
+
+                    <div class="character-role">
+                        PROTAGONIST
+                    </div>
+
+                    <p>
+                        A young warrior whose journey
+                        begins after awakening in a
+                        mysterious changed world.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- RAYAN -->
+
+            <a
+                href="rayan.html"
+                class="character-link">
+
+                <div class="character-card">
+
+                    <img
+                        class="character-image"
+                        src="characters/rayan.jpg"
+                        alt="Rayan">
+
+                    <h2>
+                        Rayan
+                    </h2>
+
+                    <div class="character-role">
+                        MENTOR
+                    </div>
+
+                    <p>
+                        A powerful warrior who guides
+                        Ryzo and teaches him how to
+                        understand and control Urja.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- HINA -->
+
+            <a
+                href="hina.html"
+                class="character-link">
+
+                <div class="character-card">
+
+                    <img
+                        class="character-image"
+                        src="characters/hina.jpg"
+                        alt="Hina">
+
+                    <h2>
+                        Hina
+                    </h2>
+
+                    <div class="character-role">
+                        MYSTERIOUS
+                    </div>
+
+                    <p>
+                        A kind-hearted girl connected
+                        to a mysterious power that has
+                        yet to reveal its true nature.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- MAHIR -->
+
+            <a
+                href="mahir.html"
+                class="character-link">
+
+                <div class="character-card">
+
+                    <img
+                        class="character-image"
+                        src="characters/mahir.jpg"
+                        alt="Mahir">
+
+                    <h2>
+                        Mahir
+                    </h2>
+
+                    <div class="character-role">
+                        WARRIOR
+                    </div>
+
+                    <p>
+                        A skilled fighter whose true
+                        intentions and connection to
+                        the story remain mysterious.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 The Vessel: Awakening
+
+    </footer>
+
+
+    <!-- =========================
+         THEME SCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleTheme() {
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+
+            const button =
+                document.getElementById(
+                    "themeToggle"
+                );
+
+
+            if (
+                document.body.classList.contains(
+                    "light-mode"
+                )
+            ) {
+
+                button.innerHTML =
+                    "🌙 Dark";
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+            }
+
+            else {
+
+                button.innerHTML =
+                    "☀️ Light";
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           REMEMBER THEME
+        ========================= */
+
+        if (
+            localStorage.getItem(
+                "theme"
+            ) === "light"
+        ) {
+
+            document.body.classList.add(
+                "light-mode"
+            );
+
+
+            document.getElementById(
+                "themeToggle"
+            ).innerHTML =
+                "🌙 Dark";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
