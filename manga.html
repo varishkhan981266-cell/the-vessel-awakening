@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -19,13 +21,18 @@
         }
 
         body {
+
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background: #090909;
+
             color: #f5f5f5;
+
             transition:
-                background 0.4s,
-                color 0.4s;
+                background 0.4s ease,
+                color 0.4s ease;
         }
 
 
@@ -46,7 +53,9 @@
                 );
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 0 7%;
@@ -58,9 +67,9 @@
                 0 3px 18px rgba(0,0,0,0.5);
 
             transition:
-                background 0.4s,
-                border-color 0.4s,
-                box-shadow 0.4s;
+                background 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
         }
 
 
@@ -81,6 +90,8 @@
             position: relative;
 
             padding-left: 28px;
+
+            white-space: nowrap;
         }
 
 
@@ -91,9 +102,11 @@
             position: absolute;
 
             left: 0;
+
             top: 50%;
 
             width: 15px;
+
             height: 15px;
 
             transform:
@@ -128,12 +141,22 @@
             font-size: 14px;
 
             transition:
-                color 0.25s,
-                text-shadow 0.25s;
+                color 0.25s ease,
+                text-shadow 0.25s ease;
         }
 
 
         nav a:hover {
+
+            color: #ff4b4b;
+
+            text-shadow:
+                0 0 8px
+                rgba(255,50,50,0.4);
+        }
+
+
+        nav a.active {
 
             color: #ff4b4b;
 
@@ -159,26 +182,38 @@
             background:
                 #1a0b0b;
 
-            color: #f5f5f5;
+            color:
+                #f5f5f5;
 
-            border-radius: 6px;
+            border-radius:
+                6px;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
-                0.3s;
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.2s ease;
         }
 
 
         #themeToggle:hover {
 
-            background: #300d0d;
+            background:
+                #300d0d;
 
-            border-color: #a83232;
+            border-color:
+                #a83232;
 
             box-shadow:
                 0 0 10px
                 rgba(255,40,40,0.25);
+
+            transform:
+                translateY(-1px);
         }
 
 
@@ -312,17 +347,20 @@
             border:
                 1px solid #292929;
 
-            padding: 30px;
+            padding:
+                30px;
 
-            margin-bottom: 25px;
+            margin-bottom:
+                25px;
 
-            text-align: center;
+            text-align:
+                center;
 
             transition:
-                transform 0.3s,
-                border-color 0.3s,
-                box-shadow 0.3s,
-                background 0.4s;
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.4s ease;
         }
 
 
@@ -335,6 +373,7 @@
                 #7d2525;
 
             box-shadow:
+
                 0 10px 30px
                 rgba(0,0,0,0.45),
 
@@ -363,12 +402,13 @@
             border:
                 1px solid #444444;
 
-            border-radius: 5px;
+            border-radius:
+                5px;
 
             transition:
-                transform 0.3s,
-                border-color 0.3s,
-                box-shadow 0.3s;
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
 
@@ -395,24 +435,28 @@
             margin:
                 10px 0;
 
-            color: #eeeeee;
+            color:
+                #eeeeee;
 
             transition:
-                color 0.3s;
+                color 0.3s ease;
         }
 
 
         .manga-card:hover h2 {
 
-            color: #ff4545;
+            color:
+                #ff4545;
         }
 
 
         .manga-card p {
 
-            color: #999999;
+            color:
+                #999999;
 
-            line-height: 1.7;
+            line-height:
+                1.7;
         }
 
 
@@ -422,7 +466,8 @@
 
         .read-button {
 
-            display: inline-block;
+            display:
+                inline-block;
 
             padding:
                 11px 22px;
@@ -434,26 +479,36 @@
                     #d7d7d7
                 );
 
-            color: #090909;
+            color:
+                #090909;
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            margin-top: 10px;
+            margin-top:
+                10px;
 
-            border-radius: 4px;
+            border-radius:
+                4px;
 
             transition:
-                0.3s;
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
         }
 
 
         .read-button:hover {
 
-            background: #ff3d3d;
+            background:
+                #ff3d3d;
 
-            color: white;
+            color:
+                white;
 
             box-shadow:
                 0 0 15px
@@ -470,34 +525,43 @@
 
         footer {
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 30px;
+            padding:
+                30px;
 
-            background: #070707;
+            background:
+                #070707;
 
-            color: #666666;
+            color:
+                #666666;
 
-            font-size: 13px;
+            font-size:
+                13px;
 
             border-top:
                 1px solid #222222;
         }
 
 
-        /* =========================
+        /* =================================================
            LIGHT MODE
-        ========================= */
+        ================================================= */
 
-        .light-mode {
+        body.light-mode {
 
-            background: #f4f4f4;
+            background:
+                #f4f4f4;
 
-            color: #111111;
+            color:
+                #111111;
         }
 
 
-        .light-mode nav {
+        /* NAV */
+
+        body.light-mode nav {
 
             background:
                 linear-gradient(
@@ -516,43 +580,54 @@
         }
 
 
-        .light-mode .logo {
+        body.light-mode .logo {
 
-            color: #161616;
+            color:
+                #161616;
         }
 
 
-        .light-mode nav a {
+        body.light-mode nav a {
 
-            color: #333333;
+            color:
+                #333333;
         }
 
 
-        .light-mode nav a:hover {
+        body.light-mode nav a:hover,
+        body.light-mode nav a.active {
 
-            color: #a00000;
+            color:
+                #a00000;
         }
 
 
-        .light-mode #themeToggle {
+        body.light-mode #themeToggle {
 
-            background: #f3eeee;
+            background:
+                #f3eeee;
 
-            color: #222222;
+            color:
+                #222222;
 
-            border-color: #b88d8d;
+            border-color:
+                #b88d8d;
         }
 
 
-        .light-mode #themeToggle:hover {
+        body.light-mode #themeToggle:hover {
 
-            background: #eadada;
+            background:
+                #eadada;
 
-            border-color: #a34b4b;
+            border-color:
+                #a34b4b;
         }
 
 
-        .light-mode .page-header {
+        /* HEADER */
+
+        body.light-mode .page-header {
 
             background:
 
@@ -573,27 +648,35 @@
         }
 
 
-        .light-mode .page-header h1 {
+        body.light-mode .page-header h1 {
 
-            color: #8f0000;
+            color:
+                #8f0000;
 
-            text-shadow: none;
+            text-shadow:
+                none;
         }
 
 
-        .light-mode .page-header p {
+        body.light-mode .page-header p {
 
-            color: #666666;
+            color:
+                #666666;
         }
 
 
-        .light-mode .volume-title {
+        /* VOLUME */
 
-            color: #8f0000;
+        body.light-mode .volume-title {
+
+            color:
+                #8f0000;
         }
 
 
-        .light-mode .manga-card {
+        /* CARD */
+
+        body.light-mode .manga-card {
 
             background:
                 linear-gradient(
@@ -607,7 +690,7 @@
         }
 
 
-        .light-mode .manga-card:hover {
+        body.light-mode .manga-card:hover {
 
             border-color:
                 #b46a6a;
@@ -618,52 +701,67 @@
         }
 
 
-        .light-mode .manga-card h2 {
+        body.light-mode .manga-card h2 {
 
-            color: #222222;
+            color:
+                #222222;
         }
 
 
-        .light-mode .manga-card:hover h2 {
+        body.light-mode .manga-card:hover h2 {
 
-            color: #990000;
+            color:
+                #990000;
         }
 
 
-        .light-mode .manga-card p {
+        body.light-mode .manga-card p {
 
-            color: #555555;
+            color:
+                #555555;
         }
 
 
-        .light-mode .manga-cover {
+        /* COVER */
+
+        body.light-mode .manga-cover {
 
             border-color:
                 #cccccc;
         }
 
 
-        .light-mode .read-button {
+        /* BUTTON */
 
-            background: #151515;
+        body.light-mode .read-button {
 
-            color: white;
+            background:
+                #151515;
+
+            color:
+                white;
         }
 
 
-        .light-mode .read-button:hover {
+        body.light-mode .read-button:hover {
 
-            background: #a00000;
+            background:
+                #a00000;
 
-            color: white;
+            color:
+                white;
         }
 
 
-        .light-mode footer {
+        /* FOOTER */
 
-            background: #ffffff;
+        body.light-mode footer {
 
-            color: #666666;
+            background:
+                #ffffff;
+
+            color:
+                #666666;
 
             border-top-color:
                 #dddddd;
@@ -681,34 +779,41 @@
                 padding:
                     10px 15px;
 
-                flex-wrap: wrap;
+                flex-wrap:
+                    wrap;
 
-                gap: 8px;
+                gap:
+                    8px;
             }
 
 
             .logo {
 
-                font-size: 14px;
+                font-size:
+                    14px;
             }
 
 
             nav a {
 
-                margin-left: 7px;
+                margin-left:
+                    7px;
 
-                font-size: 11px;
+                font-size:
+                    11px;
             }
 
 
             #themeToggle {
 
-                margin-left: 5px;
+                margin-left:
+                    5px;
 
                 padding:
                     6px 8px;
 
-                font-size: 11px;
+                font-size:
+                    11px;
             }
 
 
@@ -721,9 +826,11 @@
 
             .page-header h1 {
 
-                font-size: 32px;
+                font-size:
+                    32px;
 
-                letter-spacing: 4px;
+                letter-spacing:
+                    4px;
             }
 
 
@@ -736,13 +843,22 @@
 
             .manga-card {
 
-                padding: 20px;
+                padding:
+                    20px;
             }
 
 
             .volume-title {
 
-                font-size: 25px;
+                font-size:
+                    25px;
+            }
+
+
+            .manga-cover {
+
+                max-width:
+                    100%;
             }
 
         }
@@ -780,8 +896,12 @@
                 News
             </a>
 
-            <a href="manga.html">
+            <a
+                href="manga.html"
+                class="active">
+
                 Manga
+
             </a>
 
             <a href="characters.html">
@@ -803,7 +923,7 @@
 
 
     <!-- =========================
-         HEADER
+         PAGE HEADER
     ========================= -->
 
     <div class="page-header">
@@ -831,13 +951,23 @@
         </h2>
 
 
-        <!-- CHAPTER 1 -->
+        <!-- =========================
+             CHAPTER 1
+        ========================= -->
 
         <div class="manga-card">
 
+
+            <!--
+                IMPORTANT:
+                GitHub repository me image yahan honi chahiye:
+
+                manga/cover.jpg
+            -->
+
             <img
                 class="manga-cover"
-                src="./manga cover page/cover.jpg"
+                src="manga/cover.jpg"
                 alt="The Vessel: Awakening Volume 1 Cover">
 
 
@@ -859,10 +989,13 @@
 
             </a>
 
+
         </div>
 
 
-        <!-- CHAPTER 2 -->
+        <!-- =========================
+             CHAPTER 2
+        ========================= -->
 
         <div class="manga-card">
 
@@ -877,7 +1010,9 @@
         </div>
 
 
-        <!-- CHAPTER 3 -->
+        <!-- =========================
+             CHAPTER 3
+        ========================= -->
 
         <div class="manga-card">
 
@@ -939,7 +1074,9 @@
                     "light"
                 );
 
-            } else {
+            }
+
+            else {
 
                 button.innerHTML =
                     "☀️ Light";
